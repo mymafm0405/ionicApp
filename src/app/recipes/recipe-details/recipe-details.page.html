@@ -1,7 +1,29 @@
 <ion-header>
   <ion-toolbar color="danger">
-    <ion-title>recipe-details</ion-title>
+    <ion-title>{{loadedRecipe.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col>
+        <ion-img [src]="loadedRecipe.imageUrl"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-padding">
+        <h2>{{loadedRecipe.name}}</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item *ngFor="let ing of loadedRecipe.ingredients">
+            <h4>{{ ing }}</h4>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
